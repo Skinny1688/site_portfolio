@@ -1,0 +1,24 @@
+# Snippet for stage 7 — append to school-vibe Caddyfile WITHOUT changing
+# lovepostera.online / vibelogic.bond blocks.
+# Host gateway IP matches lovepostera pattern (172.18.0.1).
+
+sitescan.online {
+	encode gzip zstd
+	reverse_proxy 172.18.0.1:3002
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "frame-ancestors 'self'"
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
+
+www.sitescan.online {
+	redir https://sitescan.online{uri}
+}
