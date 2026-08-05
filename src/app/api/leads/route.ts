@@ -25,8 +25,14 @@ export async function POST(request: Request) {
     return NextResponse.json(result, { status: 201 });
   } catch (error) {
     if (error instanceof ZodError) {
+      const telegramIssue = error.issues.find((issue) => issue.path.includes("telegram"));
       return NextResponse.json(
-        { error: "Некорректные данные", code: "VALIDATION_ERROR" },
+        {
+          error:
+            telegramIssue?.message ||
+            "Укажите корректный Telegram, например @username",
+          code: "VALIDATION_ERROR",
+        },
         { status: 400 },
       );
     }

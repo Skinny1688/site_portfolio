@@ -1,63 +1,72 @@
-"use client";
-
-import { BlurFade } from "@/components/ui/blur-fade";
-import { Marquee } from "@/components/ui/marquee";
-import { WORK_PLACEHOLDERS } from "@/content/site";
-
-function WorkCard({
-  title,
-  niche,
-  note,
-}: {
-  title: string;
-  niche: string;
-  note: string;
-}) {
-  return (
-    <div className="w-[240px] shrink-0 border border-border bg-card p-5 md:w-[280px]">
-      <div
-        className="mb-4 aspect-[4/3] w-full rounded-[var(--radius-sm)]"
-        style={{
-          background:
-            "linear-gradient(145deg, #efefea 0%, #d9d9d2 45%, rgba(27,67,50,0.25) 100%)",
-        }}
-      />
-      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-secondary">{niche}</p>
-      <p className="mt-1 font-display text-lg font-semibold text-foreground">{title}</p>
-      <p className="mt-1 text-sm text-muted-foreground">{note} — реальные кейсы добавим отдельно</p>
-    </div>
-  );
-}
+import Image from "next/image";
+import Link from "next/link";
+import { PORTFOLIO } from "@/content/portfolio";
+import { cn } from "@/lib/utils";
 
 export function WorksSection() {
   return (
-    <section id="works" className="scroll-mt-20 border-t border-border py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <BlurFade inView>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Работы</p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">
-            Примеры на подходе
-          </h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            Сейчас — плейсхолдеры ленты. Пять реальных кейсов подключим отдельным этапом.
-          </p>
-        </BlurFade>
-      </div>
+    <section id="works" className="scroll-mt-20 px-4 py-20 md:px-6 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Работы</p>
+        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">
+          Проекты и концепты
+        </h2>
+        <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+          Коммерческий проект и три авторских концепта. В каждой работе показываю задачу, структуру
+          и итоговый интерфейс.
+        </p>
 
-      <div className="relative mt-10">
-        <Marquee pauseOnHover className="[--duration:35s] [--gap:1.25rem]">
-          {WORK_PLACEHOLDERS.map((item) => (
-            <WorkCard key={item.title} {...item} />
+        <ul className="mt-12 grid gap-6 md:grid-cols-2">
+          {PORTFOLIO.map((work, index) => (
+            <li key={work.slug} className={cn(index === 0 && "md:col-span-2")}>
+              <Link
+                href={`/works/${work.slug}`}
+                className="group flex h-full flex-col overflow-hidden border border-border bg-card transition-shadow hover:shadow-[var(--shadow-md)] cursor-pointer"
+              >
+                <div
+                  className="relative w-full overflow-hidden bg-[#efefea]"
+                  style={{
+                    aspectRatio: `${work.coverWidth} / ${work.coverHeight}`,
+                  }}
+                >
+                  <Image
+                    src={work.cover}
+                    alt={`Обложка проекта ${work.title}`}
+                    fill
+                    quality={95}
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 1152px"
+                        : "(max-width: 768px) 100vw, 560px"
+                    }
+                    className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.01]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col gap-2 p-5 md:p-6">
+                  <span
+                    className={cn(
+                      "inline-flex w-fit rounded-sm px-2 py-1 text-xs font-semibold",
+                      work.kind === "commercial"
+                        ? "bg-secondary text-secondary-foreground"
+                        : "bg-muted text-foreground",
+                    )}
+                  >
+                    {work.badge}
+                  </span>
+                  <h3 className="font-display text-xl font-semibold text-foreground md:text-2xl">
+                    {work.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {work.description}
+                  </p>
+                  <p className="mt-auto pt-2 text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground">
+                    {work.meta}
+                  </p>
+                </div>
+              </Link>
+            </li>
           ))}
-        </Marquee>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent md:w-24"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent md:w-24"
-        />
+        </ul>
       </div>
     </section>
   );

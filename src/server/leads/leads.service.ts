@@ -9,24 +9,27 @@ import type {
 } from "./leads.dto";
 import { getLeadsRepository, type LeadsRepository } from "./leads.repository";
 
+function normalizeTelegram(value: string): string {
+  const cleaned = sanitizeText(value).replace(/^@+/, "");
+  return cleaned ? `@${cleaned}` : "";
+}
+
 export class LeadsService {
   constructor(private readonly repo: LeadsRepository = getLeadsRepository()) {}
 
   async createLead(raw: CreateLeadInput): Promise<CreateLeadResponse> {
+    const telegram = normalizeTelegram(raw.telegram);
     const input: CreateLeadInput = {
-      ...raw,
-      name: sanitizeText(raw.name),
-      phone: sanitizeText(raw.phone),
-      telegram: sanitizeText(raw.telegram).replace(/^@/, "@"),
+      telegram,
+      name: sanitizeText(raw.name || telegram),
+      phone: sanitizeText(raw.phone || "—"),
       source: sanitizeText(raw.source ?? "site") || "site",
       quizAnswers: sanitizeQuizAnswers(raw.quizAnswers ?? {}),
     };
 
     const lead = await this.repo.create(input);
 
-    // TODO(stage later): notify via Telegram bot
-    // await this.notifyTelegram?.(lead);
-
+    // TODO: Telegram bot notifications
     return { id: lead.id, createdAt: lead.createdAt };
   }
 

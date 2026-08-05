@@ -1,95 +1,82 @@
-"use client";
-
-import { BlurFade } from "@/components/ui/blur-fade";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { TELEGRAM_URL } from "@/content/site";
+import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative scroll-mt-20 overflow-hidden px-4 pb-20 pt-16 md:px-6 md:pb-28 md:pt-24"
+      className="relative scroll-mt-20 overflow-hidden px-4 pb-16 pt-14 md:px-6 md:pb-24 md:pt-20"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 10% 0%, rgba(27,67,50,0.08), transparent 55%), radial-gradient(ellipse 70% 50% at 90% 20%, rgba(232,93,4,0.10), transparent 50%), linear-gradient(180deg, #f7f7f5 0%, #efefea 100%)",
+            "radial-gradient(ellipse 80% 55% at 8% 0%, rgba(201,77,0,0.08), transparent 55%), linear-gradient(180deg, #f7f7f5 0%, #efefea 100%)",
         }}
       />
 
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
-          <BlurFade delay={0.05} inView>
-            <p className="font-display text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
-              Никита · SiteScan
-            </p>
-          </BlurFade>
-
-          <BlurFade delay={0.12} inView>
-            <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-              Сайты, которые продают — без лишнего шума
-            </h1>
-          </BlurFade>
-
-          <BlurFade delay={0.2} inView>
-            <div className="mt-6 max-w-xl">
-              <TextGenerateEffect
-                words="Под ключ и редизайн для малого бизнеса, ИП и самозанятых. Быстро, по делу, с рабочим результатом."
-                className="text-lg font-normal text-muted-foreground md:text-xl"
-                duration={0.35}
-              />
-            </div>
-          </BlurFade>
-
-          <BlurFade delay={0.28} inView>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#quiz"
-                className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-6 py-3.5 text-sm font-semibold text-on-accent transition-colors hover:bg-[#d45303] cursor-pointer"
-              >
-                Рассчитать проект
-              </a>
-              <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-[var(--radius-md)] border-[1.5px] border-foreground px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background cursor-pointer"
-              >
-                Написать в Telegram
-              </a>
-            </div>
-          </BlurFade>
+          <p className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+            NKT Studio · Никита Семенов
+          </p>
+          <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+            Разрабатываю сайты для бизнеса — от структуры до запуска
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Типовые проекты
+            запускаю за 3–5 дней, сложные задачи оцениваю отдельно.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-5 py-3.5 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+            >
+              Обсудить проект и получить расчёт
+            </Link>
+            <Link
+              href="/#works"
+              className="inline-flex items-center rounded-[var(--radius-md)] border-[1.5px] border-foreground px-5 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background cursor-pointer"
+            >
+              Смотреть работы
+            </Link>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Стоимость рассчитываю индивидуально после короткого обсуждения задачи.
+          </p>
         </div>
 
-        <BlurFade delay={0.22} inView direction="left">
-          <div className="relative min-h-[280px] overflow-hidden rounded-[var(--radius-lg)] border border-border bg-secondary text-secondary-foreground md:min-h-[360px]">
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-40"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, rgba(247,247,245,0.12) 0%, transparent 40%), radial-gradient(circle at 70% 30%, rgba(232,93,4,0.35), transparent 45%)",
-              }}
-            />
-            <div className="relative flex h-full flex-col justify-between p-8 md:p-10">
-              <p className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
-                Фокус
-              </p>
-              <div>
-                <p className="font-display text-3xl font-bold leading-tight md:text-4xl">
-                  Скорость
-                  <br />
-                  и результат
-                </p>
-                <p className="mt-3 max-w-xs text-sm text-white/75">
-                  Оффер → доверие → заявка. Без фиолетового SaaS-глянца.
-                </p>
-              </div>
+        <Link
+          href="/works/ai-education-platform"
+          className="group block overflow-hidden rounded-[var(--radius-lg)] border border-border bg-card shadow-[var(--shadow-sm)] transition-shadow hover:shadow-[var(--shadow-md)] cursor-pointer"
+        >
+          <div className="relative w-full overflow-hidden bg-[#efefea]" style={{ aspectRatio: "2000 / 904" }}>
+            <div className="absolute inset-x-0 top-0 z-10 flex h-8 items-center gap-1.5 border-b border-border bg-[#efefea] px-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#d8d8d2]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#d8d8d2]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#d8d8d2]" />
             </div>
+            <Image
+              src="/works/ai-education-platform/cover.webp"
+              alt="Обложка коммерческого проекта — платформа курсов по ИИ"
+              fill
+              priority
+              quality={95}
+              className="object-contain object-center pt-8"
+              sizes="(max-width: 1024px) 100vw, 560px"
+            />
           </div>
-        </BlurFade>
+          <div className="space-y-2 p-5">
+            <span className="inline-flex rounded-sm bg-secondary px-2 py-1 text-xs font-semibold text-secondary-foreground">
+              Коммерческий проект
+            </span>
+            <p className="text-sm text-muted-foreground">
+              Образовательная платформа · полный цикл · 10 дней
+            </p>
+            <p className="text-sm font-semibold text-accent group-hover:underline">Смотреть кейс</p>
+          </div>
+        </Link>
       </div>
     </section>
   );

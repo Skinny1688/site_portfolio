@@ -1,65 +1,41 @@
-"use client";
-
-import { BlurFade } from "@/components/ui/blur-fade";
-import { NumberTicker } from "@/components/ui/number-ticker";
-import { SERVICES } from "@/content/site";
+import { PROJECT_INCLUDES, SERVICES } from "@/content/site";
 
 export function ServicesSection() {
   return (
     <section id="services" className="scroll-mt-20 border-t border-border px-4 py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <BlurFade inView>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Услуги</p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-5xl">
-            Что делаю для бизнеса
-          </h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            От лендинга до редизайна — с акцентом на заявки и понятный путь клиента.
-          </p>
-        </BlurFade>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">Услуги</p>
+        <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">
+          Какой сайт можно заказать
+        </h2>
+        <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+          Подбираю формат под задачу бизнеса, а не добавляю функции, которые не будут использоваться.
+        </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          <BlurFade delay={0.05} inView>
-            <div className="border-b border-border pb-4">
-              <p className="font-display text-4xl font-bold text-accent">
-                <NumberTicker value={14} />
-                <span className="text-foreground">+</span>
+        <ul className="mt-12 grid gap-8 sm:grid-cols-2">
+          {SERVICES.map((service) => (
+            <li key={service.title} className="border-t border-border pt-5">
+              <h3 className="font-display text-xl font-semibold text-foreground">{service.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                {service.description}
               </p>
-              <p className="mt-1 text-sm text-muted-foreground">дней типичный старт проекта</p>
-            </div>
-          </BlurFade>
-          <BlurFade delay={0.1} inView>
-            <div className="border-b border-border pb-4">
-              <p className="font-display text-4xl font-bold text-accent">
-                <NumberTicker value={1} />
-                <span className="text-foreground">×1</span>
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">контакт — вы и я, без менеджеров</p>
-            </div>
-          </BlurFade>
-          <BlurFade delay={0.15} inView>
-            <div className="border-b border-border pb-4">
-              <p className="font-display text-4xl font-bold text-accent">
-                <NumberTicker value={100} />
-                <span className="text-foreground">%</span>
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">внимание к вашему офферу</p>
-            </div>
-          </BlurFade>
-        </div>
-
-        <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service, index) => (
-            <BlurFade key={service.title} delay={0.05 * index} inView>
-              <li className="border-t border-border pt-5">
-                <h3 className="font-display text-xl font-semibold text-foreground">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-              </li>
-            </BlurFade>
+            </li>
           ))}
         </ul>
+
+        <div className="mt-14 rounded-[var(--radius-lg)] border border-border bg-card p-6 md:p-8">
+          <h3 className="font-display text-xl font-semibold text-foreground md:text-2xl">
+            В базовую разработку входят
+          </h3>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {PROJECT_INCLUDES.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-foreground md:text-base">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

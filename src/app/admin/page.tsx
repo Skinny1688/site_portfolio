@@ -81,7 +81,7 @@ export default function AdminPage() {
     return (
       <div className="mx-auto max-w-md rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-[var(--shadow-sm)]">
         <h1 className="font-display text-2xl font-bold">Вход в админку</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Только для владельца SiteScan.</p>
+        <p className="mt-2 text-sm text-muted-foreground">Только для владельца NKT Studio.</p>
         <form className="mt-6 space-y-4" onSubmit={onLogin}>
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium">Логин</span>

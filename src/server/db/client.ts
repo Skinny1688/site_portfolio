@@ -3,9 +3,7 @@ import postgres from "postgres";
 import * as schema from "./schema";
 
 declare global {
-  // eslint-disable-next-line no-var
   var __sitescanSql: ReturnType<typeof postgres> | undefined;
-  // eslint-disable-next-line no-var
   var __sitescanDb: ReturnType<typeof drizzle<typeof schema>> | undefined;
 }
 

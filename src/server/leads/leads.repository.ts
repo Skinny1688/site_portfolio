@@ -45,7 +45,6 @@ class InMemoryLeadsRepository implements LeadsRepository {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var __sitescanLeadsRepo: LeadsRepository | undefined;
 }
 

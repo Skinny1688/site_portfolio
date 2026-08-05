@@ -1,5 +1,4 @@
 import type {
-  CreateLeadInput,
   CreateLeadResponse,
   LeadAdminDto,
   LeadStatus,
@@ -19,11 +18,11 @@ async function parseJson<T>(res: Response): Promise<T> {
   return data;
 }
 
-export async function createLead(input: CreateLeadInput): Promise<CreateLeadResponse> {
+export async function submitTelegramLead(telegram: string): Promise<CreateLeadResponse> {
   const res = await fetch("/api/leads", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(input),
+    body: JSON.stringify({ telegram, source: "site" }),
   });
   return parseJson<CreateLeadResponse>(res);
 }

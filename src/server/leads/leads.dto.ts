@@ -14,22 +14,23 @@ export const quizAnswersSchema = z
 
 export type QuizAnswers = z.infer<typeof quizAnswersSchema>;
 
+const telegramSchema = z
+  .string()
+  .trim()
+  .min(3, "Укажите корректный Telegram, например @username")
+  .max(64)
+  .regex(
+    /^@?[a-zA-Z0-9_]{3,32}$/,
+    "Укажите корректный Telegram, например @username",
+  );
+
+/** Public contact form — Telegram only */
 export const createLeadSchema = z.object({
-  name: z.string().trim().min(2, "Укажите имя").max(80),
-  phone: z
-    .string()
-    .trim()
-    .min(7, "Укажите телефон")
-    .max(32)
-    .regex(/^[\d\s+\-()]+$/, "Некорректный телефон"),
-  telegram: z
-    .string()
-    .trim()
-    .min(2, "Укажите Telegram")
-    .max(64)
-    .regex(/^@?[a-zA-Z0-9_]{3,}$|^[\d+\-() ]+$/, "Некорректный Telegram"),
-  quizAnswers: quizAnswersSchema.default({}),
-  source: z.string().trim().max(40).default("site"),
+  telegram: telegramSchema,
+  name: z.string().trim().max(80).optional().default(""),
+  phone: z.string().trim().max(32).optional().default(""),
+  quizAnswers: quizAnswersSchema.optional().default({}),
+  source: z.string().trim().max(40).optional().default("site"),
 });
 
 export type CreateLeadInput = z.infer<typeof createLeadSchema>;
@@ -47,13 +48,11 @@ export const adminLoginSchema = z.object({
 
 export type AdminLoginInput = z.infer<typeof adminLoginSchema>;
 
-/** Public create response */
 export type CreateLeadResponse = {
   id: string;
   createdAt: string;
 };
 
-/** Admin list item — no internal secrets */
 export type LeadAdminDto = {
   id: string;
   name: string;
