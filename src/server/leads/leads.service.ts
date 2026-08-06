@@ -1,5 +1,6 @@
 import { AppError } from "@/server/lib/errors";
 import { sanitizeQuizAnswers, sanitizeText } from "@/server/lib/sanitize";
+import { notifyLeadCreated } from "@/server/telegram/notify-lead";
 import type {
   CreateLeadInput,
   CreateLeadResponse,
@@ -29,7 +30,15 @@ export class LeadsService {
 
     const lead = await this.repo.create(input);
 
-    // TODO: Telegram bot notifications
+    await notifyLeadCreated({
+      id: lead.id,
+      telegram: lead.telegram,
+      name: lead.name,
+      phone: lead.phone,
+      source: lead.source,
+      createdAt: lead.createdAt,
+    });
+
     return { id: lead.id, createdAt: lead.createdAt };
   }
 

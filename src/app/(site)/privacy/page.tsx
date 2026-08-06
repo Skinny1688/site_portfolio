@@ -4,6 +4,7 @@ import { BRAND, EMAIL, SPECIALIST, TELEGRAM_HANDLE, TELEGRAM_URL } from "@/conte
 export const metadata: Metadata = {
   title: "Политика обработки данных",
   description: `Политика обработки персональных данных ${BRAND}.`,
+  alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
 };
 

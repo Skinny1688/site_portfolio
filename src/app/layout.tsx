@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       "Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Никита Семенов — структура, дизайн, разработка и запуск.",
     images: [
       {
-        url: "/og/nkt-studio-cover.png",
+        url: "/og/nkt-studio-cover.png?v=2",
         width: 1200,
         height: 630,
         alt: "NKT Studio — разработка сайтов в Беларуси",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "NKT Studio — разработка сайтов в Беларуси",
     description:
       "Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Никита Семенов — структура, дизайн, разработка и запуск.",
-    images: ["/og/nkt-studio-cover.png"],
+    images: ["/og/nkt-studio-cover.png?v=2"],
   },
   icons: {
     icon: [

@@ -51,9 +51,19 @@ export function ContactForm() {
 
         <div className="mt-10 max-w-xl rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-[var(--shadow-sm)] md:p-8">
           {status === "success" ? (
-            <p className="text-base font-medium text-foreground" role="status">
-              Заявка отправлена. Я напишу вам в Telegram.
-            </p>
+            <div className="space-y-5" role="status">
+              <p className="text-base font-medium text-foreground">
+                Заявка отправлена. Я напишу вам в Telegram.
+              </p>
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+              >
+                Связаться в тг
+              </a>
+            </div>
           ) : (
             <form className="space-y-5" onSubmit={onSubmit} noValidate>
               <div>

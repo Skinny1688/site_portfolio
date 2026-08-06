@@ -39,14 +39,31 @@ await sharp(Buffer.from(webSvg))
   .png()
   .toFile(path.join(brandDir, "favicon-32.png"));
 
-// Open Graph 1200×630 — brand background + centered logo
+// Open Graph 1200×630 — brand background + trimmed, larger logo from the same SVG
 const ogW = 1200;
 const ogH = 630;
-const logoSize = 340;
+const logoTarget = 480;
 
-const logoPng = await sharp(Buffer.from(webSvg))
-  .resize(logoSize, logoSize, {
+const trimmedLogo = await sharp(Buffer.from(webSvg))
+  .resize(1200, 1200, {
     fit: "contain",
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+  })
+  .trim({ threshold: 10 })
+  .png()
+  .toBuffer();
+
+const logoMeta = await sharp(trimmedLogo).metadata();
+const scale = Math.min(
+  logoTarget / (logoMeta.width || logoTarget),
+  logoTarget / (logoMeta.height || logoTarget),
+);
+const logoW = Math.round((logoMeta.width || logoTarget) * scale);
+const logoH = Math.round((logoMeta.height || logoTarget) * scale);
+
+const logoPng = await sharp(trimmedLogo)
+  .resize(logoW, logoH, {
+    fit: "fill",
     background: { r: 0, g: 0, b: 0, alpha: 0 },
   })
   .png()
@@ -67,11 +84,11 @@ await sharp(bg)
   .composite([
     {
       input: logoPng,
-      left: Math.round((ogW - logoSize) / 2),
-      top: Math.round((ogH - logoSize) / 2),
+      left: Math.round((ogW - logoW) / 2),
+      top: Math.round((ogH - logoH) / 2),
     },
   ])
   .png()
   .toFile(path.join(ogDir, "nkt-studio-cover.png"));
 
-console.log("Installed brand logo + OG cover");
+console.log(`Installed brand logo + OG cover (${logoW}x${logoH} logo on ${ogW}x${ogH})`);
