@@ -23,7 +23,7 @@ npm run dev
 
 - Сайт: http://localhost:3000  
 - Админка: http://localhost:3000/admin  
-- Telegram CTA: https://t.me/nikita_ai_pro  
+- Telegram CTA: https://t.me/Nikita_smnw  
 
 ## API
 

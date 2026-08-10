@@ -2,8 +2,8 @@ export const BRAND = "NKT Studio";
 export const SPECIALIST = "Никита Семенов";
 export const SITE_URL = "https://sitescan.online";
 
-export const TELEGRAM_URL = "https://t.me/nikita_ai_pro";
-export const TELEGRAM_HANDLE = "@nikita_ai_pro";
+export const TELEGRAM_URL = "https://t.me/Nikita_smnw";
+export const TELEGRAM_HANDLE = "@Nikita_smnw";
 export const EMAIL = "semennikita52@gmail.com";
 export const PHONE_DISPLAY = "+375 (29) 834-10-71";
 export const PHONE_TEL = "+375298341071";
