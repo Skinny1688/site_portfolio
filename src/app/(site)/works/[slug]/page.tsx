@@ -62,6 +62,18 @@ export default async function WorkPage({ params }: Props) {
             {work.description}
           </p>
           <p className="mt-2 text-sm text-muted-foreground">{work.meta}</p>
+          {work.liveUrl ? (
+            <div className="mt-6">
+              <a
+                href={work.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+              >
+                {work.liveLabel ?? "Открыть сайт"}
+              </a>
+            </div>
+          ) : null}
         </div>
 
         <div
@@ -124,12 +136,31 @@ export default async function WorkPage({ params }: Props) {
         </section>
 
         <div className="mt-12 flex flex-wrap gap-3">
-          <Link
-            href="/#contact"
-            className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
-          >
-            Обсудить похожий проект
-          </Link>
+          {work.liveUrl ? (
+            <a
+              href={work.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+            >
+              {work.liveLabel ?? "Открыть сайт"}
+            </a>
+          ) : (
+            <Link
+              href="/#contact"
+              className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+            >
+              Обсудить похожий проект
+            </Link>
+          )}
+          {work.liveUrl ? (
+            <Link
+              href="/#contact"
+              className="inline-flex items-center rounded-[var(--radius-md)] border border-foreground px-5 py-3 text-sm font-semibold text-foreground cursor-pointer"
+            >
+              Обсудить похожий проект
+            </Link>
+          ) : null}
           <Link
             href="/#works"
             className="inline-flex items-center rounded-[var(--radius-md)] border border-foreground px-5 py-3 text-sm font-semibold text-foreground cursor-pointer"

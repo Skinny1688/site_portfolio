@@ -16,6 +16,9 @@ export type PortfolioWork = {
   done: string[];
   seoTitle: string;
   seoDescription: string;
+  /** Live interactive site URL — shown as “Открыть сайт” when set */
+  liveUrl?: string;
+  liveLabel?: string;
 };
 
 export const PORTFOLIO: PortfolioWork[] = [
@@ -63,6 +66,100 @@ export const PORTFOLIO: PortfolioWork[] = [
     seoTitle: "Платформа курсов по ИИ — кейс NKT Studio",
     seoDescription:
       "Коммерческий проект: образовательная платформа курсов по ИИ. Полный цикл — структура, дизайн, разработка и запуск за 10 дней.",
+  },
+  {
+    slug: "sova-cafe",
+    kind: "commercial",
+    badge: "Коммерческий проект · Live",
+    title: "Сова — сайт панорамного кафе",
+    description:
+      "Сайт кафе в парке Мазурино: меню, бронирование стола, пицца из печи и заявки на мероприятия. Можно открыть и пройти сценарий целиком.",
+    meta: "HoReCa · лендинг · live",
+    cover: "/works/sova-cafe/cover.webp",
+    coverWidth: 1440,
+    coverHeight: 900,
+    gallery: [
+      {
+        src: "/works/sova-cafe/desktop-01.webp",
+        alt: "Главный экран сайта кафе Сова — оффер и бронь",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/works/sova-cafe/desktop-02.webp",
+        alt: "Блок пиццы из печи на сайте кафе Сова",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/works/sova-cafe/mobile-01.webp",
+        alt: "Мобильный вид сайта кафе Сова",
+        width: 780,
+        height: 1688,
+      },
+    ],
+    task:
+      "Сделать сайт панорамного кафе: показать атмосферу места, меню и вести гостя к брони стола или обсуждению мероприятия.",
+    solution:
+      "Собрал спокойный hospitality-визуал, блоки меню и пиццы из печи, сценарии бронирования и форму заявки на событие.",
+    done: [
+      "Структура лендинга и навигация",
+      "Меню и акценты заведения",
+      "Бронь стола и заявки на мероприятия",
+      "Адаптивная вёрстка и запуск",
+    ],
+    seoTitle: "Сова — сайт панорамного кафе | кейс NKT Studio",
+    seoDescription:
+      "Коммерческий live-сайт кафе «Сова»: меню, бронирование, пицца из печи и заявки на мероприятия в Витебске.",
+    liveUrl: "https://sova.lovepostera.online/",
+    liveLabel: "Открыть сайт",
+  },
+  {
+    slug: "ug-hub",
+    kind: "commercial",
+    badge: "Коммерческий проект · Live",
+    title: "UG_HUB — сайт компьютерного клуба",
+    description:
+      "Сайт киберклуба UG_HUB: зоны и тарифы, калькулятор времени, железо, библиотека игр и запись. Интерактивный сценарий доступен онлайн.",
+    meta: "Развлечения · многоблочный лендинг · live",
+    cover: "/works/ug-hub/cover.webp",
+    coverWidth: 1440,
+    coverHeight: 900,
+    gallery: [
+      {
+        src: "/works/ug-hub/desktop-01.webp",
+        alt: "Раздел зон UG_HUB — выбор формата посадки",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/works/ug-hub/desktop-02.webp",
+        alt: "Калькулятор тарифов UG_HUB",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/works/ug-hub/mobile-01.webp",
+        alt: "Мобильный вид сайта UG_HUB",
+        width: 780,
+        height: 1688,
+      },
+    ],
+    task:
+      "Собрать сайт компьютерного клуба, где гость быстро выбирает зону, считает стоимость катки и понимает, что внутри — железо, игры и доп. развлечения.",
+    solution:
+      "Сделал тёмный gaming-интерфейс: карточки зон, калькулятор тарифов, блоки железа и лаунчер игр с фильтрами, плюс понятный путь к бронированию.",
+    done: [
+      "Зоны и тарифная сетка",
+      "Калькулятор длительности",
+      "Железо и библиотека игр",
+      "CTA на бронь и контакты",
+    ],
+    seoTitle: "UG_HUB — сайт компьютерного клуба | кейс NKT Studio",
+    seoDescription:
+      "Коммерческий live-сайт UG_HUB: зоны ПК, тарифы, калькулятор, железо, игры и бронирование в Витебске.",
+    liveUrl: "https://coachspace.site",
+    liveLabel: "Открыть сайт",
   },
   {
     slug: "dentline",
