@@ -1,6 +1,18 @@
 {
-  "width": 2000,
-  "height": 1410,
-  "sourceWidth": 1024,
-  "sourceHeight": 722
+  "cover": {
+    "width": 2000,
+    "height": 1410
+  },
+  "screens": [
+    {
+      "file": "desktop-02.webp",
+      "width": 2000,
+      "height": 1326
+    },
+    {
+      "file": "desktop-03.webp",
+      "width": 2000,
+      "height": 1315
+    }
+  ]
 }

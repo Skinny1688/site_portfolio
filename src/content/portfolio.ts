@@ -25,7 +25,7 @@ export const PORTFOLIO: PortfolioWork[] = [
   {
     slug: "ai-education-platform",
     kind: "commercial",
-    badge: "Коммерческий проект",
+    badge: "Коммерческий проект · Live",
     title: "Платформа курсов по ИИ",
     description:
       "Образовательная платформа для обучения работе с искусственным интеллектом. Полный цикл: структура, дизайн, адаптивная разработка и запуск.",
@@ -41,16 +41,22 @@ export const PORTFOLIO: PortfolioWork[] = [
         height: 904,
       },
       {
-        src: "/works/ai-education-platform/cover.png",
-        alt: "Обзор интерфейса платформы курсов по ИИ",
+        src: "/works/ai-education-platform/desktop-02.webp",
+        alt: "Блок «Для кого» платформы School_vibe",
         width: 2000,
-        height: 904,
+        height: 971,
       },
       {
-        src: "/works/ai-education-platform/mobile-01.webp",
-        alt: "Мобильный вид платформы курсов по ИИ",
-        width: 900,
-        height: 1200,
+        src: "/works/ai-education-platform/desktop-03.webp",
+        alt: "Блок «Как это работает» платформы School_vibe",
+        width: 2000,
+        height: 973,
+      },
+      {
+        src: "/works/ai-education-platform/desktop-04.webp",
+        alt: "Страница модуля курса School_vibe",
+        width: 2000,
+        height: 988,
       },
     ],
     task:
@@ -66,6 +72,8 @@ export const PORTFOLIO: PortfolioWork[] = [
     seoTitle: "Платформа курсов по ИИ — кейс NKT Studio",
     seoDescription:
       "Коммерческий проект: образовательная платформа курсов по ИИ. Полный цикл — структура, дизайн, разработка и запуск за 10 дней.",
+    liveUrl: "https://vibelogic.bond/",
+    liveLabel: "Открыть сайт",
   },
   {
     slug: "sova-cafe",
@@ -76,8 +84,8 @@ export const PORTFOLIO: PortfolioWork[] = [
       "Сайт кафе в парке Мазурино: меню, бронирование стола, пицца из печи и заявки на мероприятия. Можно открыть и пройти сценарий целиком.",
     meta: "HoReCa · лендинг · live",
     cover: "/works/sova-cafe/cover.webp",
-    coverWidth: 1440,
-    coverHeight: 900,
+    coverWidth: 2000,
+    coverHeight: 991,
     gallery: [
       {
         src: "/works/sova-cafe/desktop-01.webp",
@@ -90,12 +98,6 @@ export const PORTFOLIO: PortfolioWork[] = [
         alt: "Блок пиццы из печи на сайте кафе Сова",
         width: 1440,
         height: 900,
-      },
-      {
-        src: "/works/sova-cafe/mobile-01.webp",
-        alt: "Мобильный вид сайта кафе Сова",
-        width: 780,
-        height: 1688,
       },
     ],
     task:
@@ -138,12 +140,6 @@ export const PORTFOLIO: PortfolioWork[] = [
         width: 1440,
         height: 900,
       },
-      {
-        src: "/works/ug-hub/mobile-01.webp",
-        alt: "Мобильный вид сайта UG_HUB",
-        width: 780,
-        height: 1688,
-      },
     ],
     task:
       "Собрать сайт компьютерного клуба, где гость быстро выбирает зону, считает стоимость катки и понимает, что внутри — железо, игры и доп. развлечения.",
@@ -180,16 +176,16 @@ export const PORTFOLIO: PortfolioWork[] = [
         height: 1410,
       },
       {
-        src: "/works/dentline/cover.png",
-        alt: "Обзор интерфейса DentLine",
+        src: "/works/dentline/desktop-02.webp",
+        alt: "Блок стоимости услуг DentLine",
         width: 2000,
-        height: 1410,
+        height: 1326,
       },
       {
-        src: "/works/dentline/mobile-01.webp",
-        alt: "Мобильный вид концепта DentLine",
-        width: 900,
-        height: 1200,
+        src: "/works/dentline/desktop-03.webp",
+        alt: "Блок «Когда необходима имплантация» DentLine",
+        width: 2000,
+        height: 1315,
       },
     ],
     task:
@@ -220,16 +216,22 @@ export const PORTFOLIO: PortfolioWork[] = [
         height: 1372,
       },
       {
-        src: "/works/kvadrat-renovation/cover.png",
-        alt: "Обзор интерфейса Kvadrat",
+        src: "/works/kvadrat-renovation/desktop-02.webp",
+        alt: "Блок услуг Kvadrat — ремонт и дизайн-проект",
         width: 2000,
-        height: 1372,
+        height: 1262,
       },
       {
-        src: "/works/kvadrat-renovation/mobile-01.webp",
-        alt: "Мобильный вид концепта Kvadrat",
-        width: 900,
-        height: 1200,
+        src: "/works/kvadrat-renovation/desktop-03.webp",
+        alt: "Этапы реализации ремонта Kvadrat",
+        width: 2000,
+        height: 1010,
+      },
+      {
+        src: "/works/kvadrat-renovation/desktop-04.webp",
+        alt: "Блок «Почему выбирают нас» Kvadrat",
+        width: 2000,
+        height: 997,
       },
     ],
     task:
@@ -260,16 +262,16 @@ export const PORTFOLIO: PortfolioWork[] = [
         height: 982,
       },
       {
-        src: "/works/vector-logistics/cover.png",
-        alt: "Обзор интерфейса Vector",
+        src: "/works/vector-logistics/desktop-02.webp",
+        alt: "Главный экран Vector с формой быстрого расчёта",
         width: 2000,
-        height: 982,
+        height: 1054,
       },
       {
-        src: "/works/vector-logistics/mobile-01.webp",
-        alt: "Мобильный вид концепта Vector",
-        width: 900,
-        height: 1200,
+        src: "/works/vector-logistics/desktop-03.webp",
+        alt: "Блок услуг Vector — FTL, LTL и проектная логистика",
+        width: 2000,
+        height: 911,
       },
     ],
     task:
