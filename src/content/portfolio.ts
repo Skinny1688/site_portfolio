@@ -21,60 +21,7 @@ export type PortfolioWork = {
   liveLabel?: string;
 };
 
-export const PORTFOLIO: PortfolioWork[] = [
-  {
-    slug: "ai-education-platform",
-    kind: "commercial",
-    badge: "Коммерческий проект · Live",
-    title: "Платформа курсов по ИИ",
-    description:
-      "Образовательная платформа для обучения работе с искусственным интеллектом. Полный цикл: структура, дизайн, адаптивная разработка и запуск.",
-    meta: "Образование · полный цикл · 10 дней",
-    cover: "/works/ai-education-platform/cover.webp",
-    coverWidth: 2000,
-    coverHeight: 904,
-    gallery: [
-      {
-        src: "/works/ai-education-platform/desktop-01.webp",
-        alt: "Главный экран образовательной платформы курсов по ИИ",
-        width: 2000,
-        height: 904,
-      },
-      {
-        src: "/works/ai-education-platform/desktop-02.webp",
-        alt: "Блок «Для кого» платформы School_vibe",
-        width: 2000,
-        height: 971,
-      },
-      {
-        src: "/works/ai-education-platform/desktop-03.webp",
-        alt: "Блок «Как это работает» платформы School_vibe",
-        width: 2000,
-        height: 973,
-      },
-      {
-        src: "/works/ai-education-platform/desktop-04.webp",
-        alt: "Страница модуля курса School_vibe",
-        width: 2000,
-        height: 988,
-      },
-    ],
-    task:
-      "Собрать образовательную платформу курсов по ИИ: понятную структуру, адаптивный интерфейс и запуск в срок 10 дней.",
-    solution:
-      "Спроектировал структуру, оформил ключевые экраны и реализовал адаптивную версию с полным циклом до публикации.",
-    done: [
-      "Структура и сценарии обучения",
-      "Дизайн основных экранов",
-      "Адаптивная разработка",
-      "Запуск за 10 дней",
-    ],
-    seoTitle: "Платформа курсов по ИИ — кейс NKT Studio",
-    seoDescription:
-      "Коммерческий проект: образовательная платформа курсов по ИИ. Полный цикл — структура, дизайн, разработка и запуск за 10 дней.",
-    liveUrl: "https://vibelogic.bond/",
-    liveLabel: "Открыть сайт",
-  },
+const RAW_PORTFOLIO: PortfolioWork[] = [
   {
     slug: "sova-cafe",
     kind: "commercial",
@@ -289,6 +236,19 @@ export const PORTFOLIO: PortfolioWork[] = [
       "Авторский концепт редизайна сайта логистической компании: структура, направления и запрос расчёта.",
   },
 ];
+
+export const PORTFOLIO = RAW_PORTFOLIO.map((work) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+  return {
+    ...work,
+    cover: `${basePath}${work.cover}`,
+    gallery: work.gallery.map((shot) => ({
+      ...shot,
+      src: `${basePath}${shot.src}`,
+    })),
+  };
+});
 
 export function getWorkBySlug(slug: string): PortfolioWork | undefined {
   return PORTFOLIO.find((work) => work.slug === slug);

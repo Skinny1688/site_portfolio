@@ -3,10 +3,12 @@
 import { useRef, useState } from "react";
 import { submitTelegramLead } from "@/api/client";
 import { TELEGRAM_URL } from "@/content/site";
+import Link from "next/link";
 
 const TELEGRAM_RE = /^@?[a-zA-Z0-9_]{3,32}$/;
 
 export function ContactForm() {
+  const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
   const [telegram, setTelegram] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -50,7 +52,21 @@ export function ContactForm() {
         </p>
 
         <div className="mt-10 max-w-xl rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-[var(--shadow-sm)] md:p-8">
-          {status === "success" ? (
+          {isStaticExport ? (
+            <div className="space-y-5">
+              <p className="text-base font-medium text-foreground">
+                Для расчёта проекта напишите мне напрямую в Telegram.
+              </p>
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-[var(--radius-md)] bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-[var(--accent-hover)] cursor-pointer"
+              >
+                Написать в Telegram
+              </a>
+            </div>
+          ) : status === "success" ? (
             <div className="space-y-5" role="status">
               <p className="text-base font-medium text-foreground">
                 Заявка отправлена. Я напишу вам в Telegram.
@@ -119,9 +135,9 @@ export function ContactForm() {
 
               <p className="text-xs leading-relaxed text-muted-foreground">
                 Отправляя форму, вы соглашаетесь с{" "}
-                <a href="/privacy" className="underline underline-offset-2 cursor-pointer">
+                <Link href="/privacy" className="underline underline-offset-2 cursor-pointer">
                   обработкой персональных данных
-                </a>
+                </Link>
                 .
               </p>
             </form>

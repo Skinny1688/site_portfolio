@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/content/site";
+import { assetPath } from "@/lib/asset-path";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -19,7 +20,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/brand/nkt-studio-logo.svg"
+            src={assetPath("/brand/nkt-studio-logo.svg")}
             alt="NKT Studio"
             width={40}
             height={40}

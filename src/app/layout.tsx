@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Syne } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SITE_URL } from "@/content/site";
+import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
 
 const syne = Syne({
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Никита Семенов — структура, дизайн, разработка и запуск.",
   alternates: {
-    canonical: "/",
+    canonical: assetPath("/"),
   },
   openGraph: {
     type: "website",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
       "Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Никита Семенов — структура, дизайн, разработка и запуск.",
     images: [
       {
-        url: "/og/nkt-studio-cover.png?v=2",
+        url: assetPath("/og/nkt-studio-cover.png?v=2"),
         width: 1200,
         height: 630,
         alt: "NKT Studio — разработка сайтов в Беларуси",
@@ -49,14 +50,14 @@ export const metadata: Metadata = {
     title: "NKT Studio — разработка сайтов в Беларуси",
     description:
       "Лендинги, многостраничные сайты и редизайн для бизнеса в Беларуси. Никита Семенов — структура, дизайн, разработка и запуск.",
-    images: ["/og/nkt-studio-cover.png?v=2"],
+    images: [assetPath("/og/nkt-studio-cover.png?v=2")],
   },
   icons: {
     icon: [
-      { url: "/brand/favicon.svg", type: "image/svg+xml" },
-      { url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: assetPath("/brand/favicon.svg"), type: "image/svg+xml" },
+      { url: assetPath("/brand/favicon-32.png"), sizes: "32x32", type: "image/png" },
     ],
-    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: assetPath("/brand/apple-touch-icon.png"), sizes: "180x180" }],
   },
   robots: {
     index: true,

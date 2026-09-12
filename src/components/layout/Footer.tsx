@@ -10,6 +10,7 @@ import {
   TELEGRAM_HANDLE,
   TELEGRAM_URL,
 } from "@/content/site";
+import { assetPath } from "@/lib/asset-path";
 
 export function Footer() {
   return (
@@ -17,7 +18,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.2fr_1fr_1fr] md:px-6">
         <div>
           <Image
-            src="/brand/nkt-studio-logo.svg"
+            src={assetPath("/brand/nkt-studio-logo.svg")}
             alt="NKT Studio"
             width={48}
             height={48}

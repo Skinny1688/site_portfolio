@@ -1,6 +1,8 @@
 export const BRAND = "NKT Studio";
 export const SPECIALIST = "Никита Семенов";
-export const SITE_URL = "https://sitescan.online";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "https://sitescan.online";
 
 export const TELEGRAM_URL = "https://t.me/Nikita_smnw";
 export const TELEGRAM_HANDLE = "@Nikita_smnw";
